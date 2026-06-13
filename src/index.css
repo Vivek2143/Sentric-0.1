@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;750&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Dynamic font & border radius bindings */
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Responsive compact rounded styles */
+  --radius-2xl: 14px;
+  --radius-xl: 11px;
+  --radius-lg: 8px;
+  --radius-md: 6px;
+
+  /* Custom palette overrides for Dark Cyber Theme */
+  --color-slate-950: #05060b;
+  --color-slate-900: #0c0e17;
+  --color-slate-800: rgba(255, 255, 255, 0.05);
+  --color-slate-805: rgba(255, 255, 255, 0.05);
+  --color-slate-850: rgba(255, 255, 255, 0.04);
+  --color-slate-855: rgba(255, 255, 255, 0.04);
+  --color-slate-700: rgba(255, 255, 255, 0.09);
+  --color-slate-755: rgba(255, 255, 255, 0.09);
+}
+
+/* ==========================================================
+   GLOBAL BODY & BACKGROUND CUSTOMIZATIONS
+   ========================================================== */
+body {
+  background-color: var(--color-slate-950);
+  color: #f1f5f9;
+  font-family: var(--font-sans);
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling - Sleek minimalist */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-slate-950);
+  transition: background-color 0.4s;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+  transition: background-color 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* ==========================================================
+   CYBER GLASS & SHADOW FX - DARK/LIGHT MODULATIONS
+   ========================================================== */
+.cyber-glass {
+  background: rgba(10, 12, 22, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.045);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  transition: background-color 0.4s, border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+}
+
+.cyber-glass:hover {
+  border-color: rgba(99, 102, 241, 0.15);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.cyber-glass-glow {
+  background: rgba(10, 12, 22, 0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.50), 0 0 25px rgba(99, 102, 241, 0.05);
+  transition: background-color 0.4s, border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+}
+
+.cyber-glass-glow:hover {
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.60), 0 0 30px rgba(99, 102, 241, 0.08);
+}
+
+/* Universal Dashboard hover states for non-class glass containers */
+.bg-slate-950\/60, 
+.bg-slate-900\/25, 
+.bg-slate-900\/30, 
+.bg-slate-900\/40, 
+.bg-[#121214] {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hover\:border-indigo-500\/20:hover,
+.hover\:border-teal-500\/20:hover,
+.hover\:border-rose-500\/20:hover,
+.hover\:border-cyan-500\/20:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Interactive Dashboard Item Enhancements */
+.bg-slate-950\/60:hover {
+  border-color: rgba(99, 102, 241, 0.25) !important;
+  background-color: rgba(15, 18, 32, 0.75) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.40);
+}
+
+/* Light Mode Overrides for Universal Container Hovers */
+.light .bg-slate-950\/60:hover {
+  border-color: rgba(99, 102, 241, 0.20) !important;
+  background-color: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+}
+
+/* Glowing text shadows */
+.text-neon-glow {
+  text-shadow: 0 0 10px rgba(129, 140, 248, 0.35);
+}
+.text-neon-cyan {
+  text-shadow: 0 0 10px rgba(34, 211, 238, 0.35);
+}
+.text-neon-rose {
+  text-shadow: 0 0 10px rgba(251, 113, 133, 0.35);
+}
+
+/* ==========================================================
+   LIGHT MODE DESIGN SYSTEM (MILLENNIAL/GEN Z COZY GLASS)
+   ========================================================== */
+.light {
+  /* Override global typography to shift 'vibe' to a luxurious, curvy geometric style */
+  --font-sans: "Outfit", "Plus Jakarta Sans", sans-serif;
+  --font-display: "Outfit", sans-serif; 
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Cozy Light Palette - Soft Milk & Vanilla Warm Textures */
+  --color-slate-950: #f7f9fc;          /* Soft pristine background */
+  --color-slate-900: #ffffff;          /* Pure crystal cards */
+  --color-slate-800: rgba(15, 23, 42, 0.05);    /* Soft organic light lines */
+  --color-slate-805: rgba(15, 23, 42, 0.05);
+  --color-slate-850: rgba(15, 23, 42, 0.035);
+  --color-slate-855: rgba(15, 23, 42, 0.035);
+  --color-slate-700: rgba(15, 23, 42, 0.075);
+  --color-slate-755: rgba(15, 23, 42, 0.075);
+
+  color: #1e293b;
+}
+
+/* Light mode specific element modifications */
+.light body {
+  background-color: #f7f9fc;
+  color: #1e293b;
+}
+
+/* Scrollbar tweaks in light mode */
+.light ::-webkit-scrollbar-track {
+  background: #f7f9fc;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Soft Cozy Glass override under light mode */
+.light .cyber-glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02), 0 1px 3px rgba(0, 0, 0, 0.01);
+}
+
+.light .cyber-glass-glow {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(99, 102, 241, 0.12);
+  box-shadow: 0 15px 35px rgba(99, 102, 241, 0.07), 0 2px 5px rgba(0, 0, 0, 0.015);
+}
+
+/* Overriding glowing neon headers to luxurious matte inks */
+.light .text-neon-glow {
+  text-shadow: none;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.light .text-neon-cyan {
+  text-shadow: none;
+  background: linear-gradient(135deg, #0891b2, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+.light .text-neon-rose {
+  text-shadow: none;
+  background: linear-gradient(135deg, #be123c, #f43f5e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+}
+
+/* ==========================================================
+   BUTTONS INTERFERENCE (LIGHT MODE COZY VS DARK CYBERNETIC)
+   ========================================================== */
+   
+/* Dark Buttons: Cybernetic feedback, thin borders, hover background glow */
+button, .btn-action, [role="button"] {
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+button:not(:disabled):hover, .btn-action:not(:disabled):hover {
+  transform: translateY(-1px);
+}
+
+button:not(:disabled):active, .btn-action:not(:disabled):active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* Light mode button aesthetic shifts - Plush, tactile, responsive */
+.light button:not(.nav-item-btn), 
+.light .cursor-pointer:not(.nav-item-link) {
+  /* Overwrite dark hard gradients with soft pastel shadows and beautiful satin colors */
+  border-radius: var(--radius-xl);
+  font-family: var(--font-sans);
+}
+
+/* Shift neon highlights under light mode to premium matte-finish and organic colors */
+.light .bg-slate-900 {
+  background-color: #ffffff;
+  color: #1e293b;
+  border-color: rgba(15, 23, 42, 0.06);
+}
+
+.light .text-slate-400 {
+  color: #64748b; /* clear and readable slate grey */
+}
+
+.light .text-slate-300 {
+  color: #475569;
+}
+
+.light .text-slate-450 {
+  color: #475569;
+}
+
+.light .text-slate-100 {
+  color: #0f172a;
+}
+
+.light .bg-slate-950 {
+  background-color: #f1f5f9;
+  color: #334155;
+  border-color: rgba(15, 23, 42, 0.05);
+}
+
+/* Enhance standard form elements to clean borders on light theme */
+.light input,
+.light textarea,
+.light select {
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1px solid #cbd5e1;
+  box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.015);
+}
+
+.light input:focus,
+.light textarea:focus,
+.light select:focus {
+  border-color: #6366f1;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+/* Convert dark-mode specific card borders and dividers to light mode dividers */
+.light .border-slate-800,
+.light .border-slate-805,
+.light .border-slate-850,
+.light .border-slate-855,
+.light .border-white\/5 {
+  border-color: rgba(15, 23, 42, 0.06) !important;
+}
+
+.light .divide-slate-850\/40 > * {
+  border-color: rgba(15, 23, 42, 0.05) !important;
+}
+
+/* Customize light mode dashboard badges */
+.light .bg-emerald-950\/40 {
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
+  border-color: #a7f3d0 !important;
+}
+
+.light .bg-rose-950\/45,
+.light .bg-rose-950\/15 {
+  background-color: #fee2e2 !important;
+  color: #991b1b !important;
+  border-color: #fecaca !important;
+}
+
+.light .bg-amber-950\/40 {
+  background-color: #fef3c7 !important;
+  color: #92400e !important;
+  border-color: #fde68a !important;
+}
+
+.light .bg-cyan-950\/40 {
+  background-color: #e0f2fe !important;
+  color: #075985 !important;
+  border-color: #bae6fd !important;
+}
+
+.light .text-emerald-400 {
+  color: #059669 !important;
+}
+
+.light .text-rose-400,
+.light .text-rose-450 {
+  color: #dc2626 !important;
+}
+
+.light .text-amber-400 {
+  color: #d97706 !important;
+}
+
+.light .text-cyan-400 {
+  color: #0284c7 !important;
+}
+
+/* Light mode Primary button conversions */
+.light .bg-indigo-600 {
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #ffffff;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.16);
+  border: none;
+}
+
+.light .bg-indigo-600:hover {
+  background: linear-gradient(135deg, #4338ca, #4f46e5);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.22);
+  transform: translateY(-1px);
+}
+
+/* Light mode dashboard action navigation highlights */
+.light .bg-indigo-500\/10 {
+  background-color: rgba(99, 102, 241, 0.08) !important;
+  color: #4f46e5 !important;
+  border-color: rgba(99, 102, 241, 0.15) !important;
+}
+
+.light .text-indigo-400 {
+  color: #4f46e5 !important;
+}
+
+.light .bg-[#0C0C0E]\/90 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(15, 23, 42, 0.06) !important;
+}

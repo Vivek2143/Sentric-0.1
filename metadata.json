@@ -1,0 +1,6 @@
+{
+  "name": "Sentric",
+  "description": "The Enterprise AI Control Plane. Discover Shadow AI, secure prompts and sensitive data in real time, and optimize AI spending and tokens across the entire enterprise.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
